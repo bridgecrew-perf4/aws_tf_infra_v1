@@ -5,7 +5,7 @@ provider "aws" {
 }
 
 module "web_cluster" {
-  source = "../../../Modules/services/web_cluster"
+  source = "github.com/smokentar/aws_tf_modules//services/web_cluster?ref=staging"
 
   # Pass in staging-specific variables
   cluster_name = "web-staging"
@@ -17,7 +17,7 @@ module "web_cluster" {
 }
 
 # Test any inbound traffic to the ALB fronting the initial web servers here
-# To apply to prod - implement in the web_cluster module 
+# To apply to prod - implement in the web_cluster module
 resource "aws_security_group_rule" "allow_test_inbound" {
   type = "ingress"
   security_group_id = module.web_cluster.alb_sg_id

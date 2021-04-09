@@ -5,7 +5,7 @@ provider "aws" {
 }
 
 module "mysql" {
-  source = "../../../../Modules/services/data_stores/mysql"
+  source = "github.com/smokentar/aws_tf_modules//services/data_stores/mysql?ref=staging"
 
   db_instance_environment = "staging"
 }
