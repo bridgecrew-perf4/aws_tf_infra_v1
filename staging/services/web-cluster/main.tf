@@ -18,7 +18,7 @@ module "web_cluster" {
 
   custom_tags = {
     Environment = "Staging"
-    IAC = "terraform"
+    Type = "immutable"
   }
 }
 
