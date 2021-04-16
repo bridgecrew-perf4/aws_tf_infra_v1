@@ -11,9 +11,15 @@ module "web_cluster" {
   cluster_name = "web-staging"
   db_remote_state_bucket = "terraform-state-20210409171444659800000001"
   db_remote_state_key = "staging/services/data_stores/mysql/terraform.tfstate"
+
   min_size_asg = 2
   max_size_asg = 2
   instance_type  = "t2.micro"
+
+  custom_tags = {
+    Environment = "Staging"
+    IAC = "terraform"
+  }
 }
 
 # Test any inbound traffic to the ALB fronting the initial web servers here
