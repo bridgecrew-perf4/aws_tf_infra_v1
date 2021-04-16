@@ -8,6 +8,10 @@ module "mysql" {
   source = "github.com/smokentar/aws_tf_modules//services/data_stores/mysql?ref=staging"
 
   db_instance_environment = "staging"
+  
+  custom_tags = {
+    Environment = "Staging"
+  }
 }
 
 terraform {
