@@ -8,6 +8,10 @@ module "mysql" {
   source = "github.com/smokentar/aws_tf_modules//services/data_stores/mysql?ref=master"
 
   db_instance_environment = "prod"
+
+  custom_tags = {
+    Environment = "Production"
+  }
 }
 
 terraform {

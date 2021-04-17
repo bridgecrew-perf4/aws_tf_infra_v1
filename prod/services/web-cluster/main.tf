@@ -9,11 +9,17 @@ module "web-cluster" {
 
   # Pass in prod-specific variables
   cluster_name = "web-prod"
-  db_remote_state_bucket = "terraform-state-20210409171444659800000001"
+  db_remote_state_bucket = "terraform-state-20210416235954998800000001"
   db_remote_state_key = "prod/services/data_stores/mysql/terraform.tfstate"
+
   min_size_asg = 4
   max_size_asg = 4
   instance_type  = "t3.medium"
+
+  custom_tags = {
+    Environment = "Production"
+    Type = "immutable"
+  }
 }
 
 # to go in a module based on environment condition
