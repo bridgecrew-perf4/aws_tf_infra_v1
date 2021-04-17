@@ -16,6 +16,8 @@ module "web_cluster" {
   max_size_asg = 2
   instance_type  = "t2.micro"
 
+  scheduled_actions = false
+
   custom_tags = {
     Environment = "Staging"
     Type = "immutable"

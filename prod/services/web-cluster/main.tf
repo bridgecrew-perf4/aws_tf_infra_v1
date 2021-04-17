@@ -16,32 +16,12 @@ module "web-cluster" {
   max_size_asg = 4
   instance_type  = "t3.medium"
 
+  scheduled_actions = true
+
   custom_tags = {
     Environment = "Production"
     Type = "immutable"
   }
-}
-
-# to go in a module based on environment condition
-resource "aws_autoscaling_schedule" "scale_out_during_business_hours" {
-  scheduled_action_name = "scale-out-during-business-hours"
-  min_size = 2
-  max_size = 10
-  desired_capacity = 10
-  recurrence = "0 9 * * *"
-
-  autoscaling_group_name = module.web-cluster.asg_name
-}
-
-# to go in a module based on environment condition
-resource "aws_autoscaling_schedule" "scale_in_after_business_hours" {
-  scheduled_action_name = "scale-in-after-business-hours"
-  min_size = 2
-  max_size = 10
-  desired_capacity = 2
-  recurrence = "0 17 * * *"
-
-  autoscaling_group_name = module.web-cluster.asg_name
 }
 
 terraform {
