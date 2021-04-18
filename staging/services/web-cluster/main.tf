@@ -9,7 +9,9 @@ module "web_cluster" {
 
   # Pass in staging-specific variables
   cluster_name = "web-staging"
-  db_remote_state_bucket = "terraform-state-<number>"
+  live_ami = "ami-013f17f36f8b1fefb"
+
+  db_remote_state_bucket = "terraform-state-20210418221008247500000001"
   db_remote_state_key = "staging/services/data_stores/mysql/terraform.tfstate"
 
   min_size_asg = 2

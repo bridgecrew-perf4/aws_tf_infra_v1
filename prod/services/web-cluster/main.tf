@@ -9,6 +9,8 @@ module "web-cluster" {
 
   # Pass in prod-specific variables
   cluster_name = "web-prod"
+  live_ami = "ami-013f17f36f8b1fefb"
+
   db_remote_state_bucket = "terraform-state-<number>"
   db_remote_state_key = "prod/services/data_stores/mysql/terraform.tfstate"
 
