@@ -5,7 +5,7 @@ provider "aws" {
 }
 
 module "web-cluster" {
-  source = "github.com/smokentar/aws_tf_modules//services/web_cluster?ref=master"
+  source = "github.com/smokentar/aws_tf_modules//services/simple-app?ref=master"
 
   # Pass in prod-specific variables
   cluster_name = "web-prod"
