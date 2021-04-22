@@ -2,6 +2,12 @@ provider "aws" {
   region = "us-east-1"
 }
 
+# Allow any 3.x version of the AWS provider
+version = "~> 3.0"
+
+# Allow any 0.14.x version of Terraform
+required_version = ">= 0.14, < 0.15"
+
 resource "aws_s3_bucket" "terraform_state" {
   bucket_prefix = "terraform-state-"
 
@@ -39,11 +45,10 @@ resource "aws_dynamodb_table" "terraform_locks" {
 }
 
 # Uncomment and re-init
-/*
+
 terraform {
   # Partial config; pulls data from backend.hcl
   backend "s3" {
     key = "global/project1/terraform.tfstate"
   }
 }
-*/

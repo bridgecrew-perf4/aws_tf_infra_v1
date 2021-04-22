@@ -4,6 +4,12 @@ provider "aws" {
   region = "us-east-1"
 }
 
+# Allow any 3.x version of the AWS provider
+version = "~> 3.0"
+
+# Allow any 0.14.x version of Terraform
+required_version = ">= 0.14, < 0.15"
+
 module "web_cluster" {
   # This cluster will host a simple app
   source = "github.com/smokentar/aws_tf_modules//services/simple-app?ref=staging"
