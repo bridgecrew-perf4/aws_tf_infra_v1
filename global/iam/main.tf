@@ -15,6 +15,13 @@ resource "aws_iam_user" "example" {
   name = each.value
 }
 
+terraform {
+  # Partial config; pulls data from backend.hcl
+  backend "s3" {
+    key = "global/project1/terraform.tfstate"
+  }
+}
+
 output "all_users" {
   value = values(aws_iam_user.example)[*].arn
 }

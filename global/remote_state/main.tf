@@ -45,10 +45,11 @@ resource "aws_dynamodb_table" "terraform_locks" {
 }
 
 # Uncomment and re-init
-
+/*
 terraform {
   # Partial config; pulls data from backend.hcl
   backend "s3" {
     key = "global/project1/terraform.tfstate"
   }
 }
+*/

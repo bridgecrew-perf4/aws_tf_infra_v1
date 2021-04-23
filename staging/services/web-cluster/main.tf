@@ -18,7 +18,7 @@ module "web_cluster" {
   cluster_name = "web-staging"
   live_ami = "ami-013f17f36f8b1fefb"
 
-  db_remote_state_bucket = "terraform-state-<number>"
+  db_remote_state_bucket = "terraform-state-<number>" # Replace with S3 bucket output
   db_remote_state_key = "staging/services/data_stores/mysql/terraform.tfstate"
 
   min_size_asg = 2
