@@ -49,7 +49,7 @@ resource "aws_dynamodb_table" "terraform_locks" {
 terraform {
   # Partial config; pulls data from backend.hcl
   backend "s3" {
-    key = "global/project1/terraform.tfstate"
+    key = "global/remote_state/terraform.tfstate"
   }
 }
 */
