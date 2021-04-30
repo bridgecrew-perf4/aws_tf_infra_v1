@@ -39,7 +39,7 @@ resource "aws_dynamodb_table" "terraform_locks" {
 }
 
 # Uncomment and re-init
-
+/*
 terraform {
   # Partial config; pulls data from backend.hcl
   backend "s3" {
@@ -54,3 +54,4 @@ terraform {
     aws = "~> 3.0"
   }
 }
+*/
