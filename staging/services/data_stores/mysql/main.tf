@@ -4,12 +4,6 @@ provider "aws" {
   region = "us-east-1"
 }
 
-# Allow any 3.x version of the AWS provider
-version = "~> 3.0"
-
-# Allow any 0.14.x version of Terraform
-required_version = ">= 0.14, < 0.15"
-
 module "mysql" {
   source = "github.com/smokentar/aws_tf_modules//services/data_stores/mysql?ref=staging"
 
@@ -25,6 +19,12 @@ terraform {
   backend "s3" {
     key = "staging/services/data_stores/mysql/terraform.tfstate"
   }
+
+  # Allow any 3.x version of the AWS provider
+  version = "~> 3.0"
+
+  # Allow any 0.14.x version of Terraform
+  required_version = ">= 0.14, < 0.15"
 }
 
 # Ensure that outputs from the module are exported to the tfstate file
