@@ -39,17 +39,18 @@ resource "aws_dynamodb_table" "terraform_locks" {
 }
 
 # Uncomment and re-init
-/*
+
 terraform {
   # Partial config; pulls data from backend.hcl
   backend "s3" {
     key = "global/remote_state/terraform.tfstate"
   }
 
-  # Allow any 3.x version of the AWS provider
-  version = "~> 3.0"
-  
   # Allow any 0.14.x version of Terraform
   required_version = ">= 0.14, < 0.15"
+
+  # Allow any 3.x version of the AWS provider
+  required_providers {
+    aws = "~> 3.0"
+  }
 }
-*/

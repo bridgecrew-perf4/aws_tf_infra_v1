@@ -48,7 +48,9 @@ terraform {
   }
 
   # Allow any 3.x version of the AWS provider
-  version = "~> 3.0"
+  required_providers {
+    aws = "~> 3.0"
+  }
 
   # Allow any 0.14.x version of Terraform
   required_version = ">= 0.14, < 0.15"
